@@ -1,3 +1,6 @@
+import {Modal} from "./modal.js";
+
+
 export class Card{
     makeProjectCard (project){
         let card = document.createElement("div");
@@ -11,7 +14,14 @@ export class Card{
         addToDoBtn.textContent = "Add Task";
         addToDoBtn.style.backgroundColor = "green";
         card.appendChild(addToDoBtn);
+        
+        addToDoBtn.addEventListener("click", ()=> {
+            const modal = new Modal();
 
+           const toDoModal = modal.createToDoModal(project);
+           document.body.append(toDoModal.dialog);
+           toDoModal.dialog.showModal();
+        })
         return card
     }
 }

@@ -4,7 +4,7 @@ console.log("check");
 import {NewProject} from "./toDo.js";
 import {NewToDo} from "./toDo.js";
 import {Card} from "./dom.js";
-
+import {Modal} from "./dom.js";
 
 let allProjects = [];
 
