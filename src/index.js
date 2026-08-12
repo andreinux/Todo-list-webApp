@@ -1,39 +1,34 @@
-
 import "./index.css";
-console.log("check");
-import {NewProject} from "./toDo.js";
-import {NewToDo} from "./toDo.js";
-import {Card} from "./card.js";
-import {Modal} from "./modal.js";
+import { NewProject } from "./toDo.js";
+import { Card } from "./card.js";
 
 let allProjects = [];
 
-function addProject (project){
-    allProjects.push(project);
+function addProject(project) {
+  allProjects.push(project);
 }
 
+const projectForm = document.querySelector("#projectForm");
+const projectInput = document.querySelector("#projectInput");
+const projectsContainer = document.querySelector("#projects-container");
 
-let projectForm = document.querySelector("#projectForm")
-let projectInput = document.querySelector("#projectInput");
-let projectsContainer = document.querySelector("#projects-container");
+projectForm.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-projectForm.addEventListener("submit", (e)=> {
-    e.preventDefault();
-    const project = new NewProject(projectInput.value);
-    addProject(project);
-    
+  const project = new NewProject(projectInput.value);
 
-    const card = new Card();
-    const projectCard = card.makeProjectCard(project);
-    projectsContainer.append(projectCard);
+  addProject(project);
 
-    projectForm.reset();
-    
-})
+  const card = new Card();
+  const projectCard = card.makeProjectCard(project);
 
-let viewProjects = document.querySelector("#viewProjects")
+  projectsContainer.append(projectCard);
 
-viewProjects.addEventListener("click" , ()=> {
-    console.log(allProjects);
-})
+  projectForm.reset();
+});
 
+const viewProjects = document.querySelector("#viewProjects");
+
+viewProjects.addEventListener("click", () => {
+  console.log(allProjects);
+});

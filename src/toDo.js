@@ -8,7 +8,7 @@ export class NewProject{
         this.toDoArr.push(toDo);
     }
     removeToDo (toDo){
-        this.toDoArr.filter(item => item !== toDo);
+        this.toDoArr= this.toDoArr.filter(item => item !== toDo);
     }
 }
 

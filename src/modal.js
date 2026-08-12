@@ -1,9 +1,10 @@
 
-import {NewToDo, NewProject} from "./toDo.js";
+import {NewToDo} from "./toDo.js";
+import {renderTasks} from "./ui.js";
 
 
 export class Modal {
-  createToDoModal(project) {
+  createToDoModal(project, tasksContainer) {
     const dialog = document.createElement("dialog");
     dialog.classList.add("todo-modal");
 
@@ -46,9 +47,13 @@ export class Modal {
          titleInput.value, descriptionInput.value);
 
         project.addToDo (task);
+         renderTasks(project, tasksContainer);
+
             dialog.close();
             
             console.log(project);
+       
+   
     })
 
     form.append(
