@@ -1,4 +1,7 @@
 
+import {NewToDo, NewProject} from "./toDo.js";
+
+
 export class Modal {
   createToDoModal(project) {
     const dialog = document.createElement("dialog");
@@ -34,6 +37,19 @@ export class Modal {
     const submitBtn = document.createElement("button");
     submitBtn.type = "submit";
     submitBtn.textContent = "Add Task";
+
+
+
+    form.addEventListener("submit", (event)=> {
+        event.preventDefault();
+        const task = new NewToDo(
+         titleInput.value, descriptionInput.value);
+
+        project.addToDo (task);
+            dialog.close();
+            
+            console.log(project);
+    })
 
     form.append(
       title,
