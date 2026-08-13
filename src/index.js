@@ -4,7 +4,7 @@ import { Card } from "./card.js";
 import {loadProjects, saveToStorage} from "./storage.js";
 import {renderTasks, renderProjects} from "./ui.js"
 
-let allProjects = loadProjects() || [];
+let allProjects = loadProjects();
 renderProjects(allProjects);
 
 function addProject(project) {
