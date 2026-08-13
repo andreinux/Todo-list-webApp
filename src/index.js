@@ -1,11 +1,16 @@
 import "./index.css";
 import { NewProject } from "./toDo.js";
 import { Card } from "./card.js";
+import {loadProjects, saveToStorage} from "./storage.js";
+import {renderTasks, renderProjects} from "./ui.js"
 
-let allProjects = [];
+let allProjects = loadProjects() || [];
+renderProjects(allProjects);
 
 function addProject(project) {
+  
   allProjects.push(project);
+  saveToStorage(allProjects);
 }
 
 const projectForm = document.querySelector("#projectForm");

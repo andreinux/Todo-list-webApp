@@ -33,3 +33,13 @@
     container.append(taskItem);
         }
     }
+
+    export function renderProjects (allProjects){
+        const projectsContainer = document.querySelector("#projects-container");
+        for (const project of allProjects){
+             const card = new Card();
+             const projectCard = card.makeProjectCard(project);
+
+        projectsContainer.append(projectCard);
+        }
+    }
