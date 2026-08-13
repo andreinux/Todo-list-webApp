@@ -1,4 +1,7 @@
-    
+    import "./ui.css";
+    import {TaskManager} from "./taskManager.js";
+    import {Card} from "./card.js";
+    const taskManager = new TaskManager();
     
     
     export function renderTasks(project, container){
@@ -7,6 +10,7 @@
 
         for(const task of project.toDoArr){
             let taskItem = document.createElement("div");
+            taskItem.classList.add ("taskItem");
 
             const title = document.createElement("h4");
              title.textContent = task.title;
@@ -14,7 +18,18 @@
              const description = document.createElement("p");
              description.textContent = task.description;
 
-    taskItem.append(title, description);
+             const finishBtn = document.createElement("button");
+             finishBtn.style.color="red";
+             finishBtn.textContent = "Finished";
+
+             finishBtn.addEventListener("click", ()=> { 
+                
+                taskManager.deleteTask(project, task);
+                renderTasks(project, container);
+             })
+             
+
+    taskItem.append(title, description,finishBtn);
     container.append(taskItem);
         }
     }
