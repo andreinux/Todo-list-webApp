@@ -5,7 +5,7 @@ import {loadProjects, saveToStorage} from "./storage.js";
 import {renderTasks, renderProjects, renderProjectBtns} from "./ui.js"
 
 let allProjects = loadProjects();
-renderProjects(allProjects);
+
 
 function addProject(project) {
   

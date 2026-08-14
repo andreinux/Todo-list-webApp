@@ -52,5 +52,18 @@
 
             const sidebar = document.querySelector("#sidebar");
             sidebar.append(projectBtn);
+
+            projectBtn.addEventListener("click", ()=> {
+                loadProject(project);
+            })
         }
     }
+    
+    
+    function loadProject(project) {
+    const card = new Card();
+    const projectCard = card.makeProjectCard(project);
+    const projectsContainer = document.querySelector("#projects-container");
+    projectsContainer.innerHTML = "";
+    projectsContainer.append(projectCard);
+}
