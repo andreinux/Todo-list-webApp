@@ -5,6 +5,9 @@ import {loadProjects, saveToStorage} from "./storage.js";
 import {renderTasks, renderProjects, renderProjectBtns} from "./ui.js"
 import {allProjects} from "./state.js";
 
+
+renderProjectBtns(allProjects);
+
 function addProject(project) {
   
   allProjects.push(project);
@@ -21,16 +24,12 @@ projectForm.addEventListener("submit", (e) => {
   const project = new NewProject(projectInput.value);
 
   addProject(project);
-
-  const card = new Card();
-  const projectCard = card.makeProjectCard(project);
-
-  projectsContainer.append(projectCard);
-
   projectForm.reset();
 
   //
+  projectBtnContainer.innerHTML="";
   renderProjectBtns(allProjects);
+  
 });
 
 const viewProjects = document.querySelector("#viewProjects");

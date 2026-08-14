@@ -50,11 +50,12 @@
             projectBtn.classList.add("projectBtn");
             projectBtn.textContent = project.projectName;
 
-            const sidebar = document.querySelector("#sidebar");
-            sidebar.append(projectBtn);
+            const projectBtnContainer = document.querySelector("#projectBtnContainer")
+            projectBtnContainer.append(projectBtn);
 
             projectBtn.addEventListener("click", ()=> {
-                loadProject(project);
+                    
+                loadProject(project);   
             })
         }
     }

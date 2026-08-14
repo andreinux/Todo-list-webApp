@@ -1,3 +1,3 @@
 import {loadProjects} from "./storage.js";
 
-export let allProjects = [];
+export let allProjects = loadProjects() || [];
