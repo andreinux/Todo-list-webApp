@@ -1,31 +1,45 @@
-import {NewProject, NewToDo} from "./toDo.js";
+import { NewProject, NewToDo } from "./toDo.js";
 
-
-
-export function saveToStorage (projects){
-    localStorage.setItem("projects",JSON.stringify(projects));
+export function saveToStorage(projects) {
+    // Guard clause: never save undefined or null to localStorage
+    if (!projects) return;
+    
+    localStorage.setItem("projects", JSON.stringify(projects));
 }
-
 
 export function loadProjects() {
     const saved = localStorage.getItem("projects");
 
-    if (!saved) return [];
+    // Catch missing key, null, or the literal string "undefined"
+    if (!saved || saved === "undefined") return [];
 
-    const data = JSON.parse(saved);
+    try {
+        const data = JSON.parse(saved);
 
-    return data.map(projectData => {
-        const project = new NewProject(projectData.projectName);
+        if (!Array.isArray(data)) return [];
 
-        projectData.toDoArr.forEach(todoData => {
-            const todo = new NewToDo(
-                todoData.title,
-                todoData.description
-            );
+        return data.map(projectData => {
+            const project = new NewProject(projectData.projectName);
 
-            project.addToDo(todo);
+            (projectData.toDoArr || []).forEach(todoData => {
+                const todo = new NewToDo(
+                    todoData.title,
+                    todoData.description,
+                    todoData.dueDate,
+                    todoData.priority
+                );
+
+                if (todoData.completed !== undefined) {
+                    todo.completed = todoData.completed;
+                }
+
+                project.addToDo(todo);
+            });
+
+            return project;
         });
-
-        return project;
-    });
+    } catch (error) {
+        console.error("Failed to parse projects from localStorage:", error);
+        return [];
+    }
 }

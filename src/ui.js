@@ -61,9 +61,9 @@
     
     
     function loadProject(project) {
-    const card = new Card();
-    const projectCard = card.makeProjectCard(project);
-    const projectsContainer = document.querySelector("#projects-container");
-    projectsContainer.innerHTML = "";
+              const card = new Card();
+               const projectCard = card.makeProjectCard(project);
+           const projectsContainer = document.querySelector("#projects-container");
+            projectsContainer.innerHTML = "";
     projectsContainer.append(projectCard);
 }
