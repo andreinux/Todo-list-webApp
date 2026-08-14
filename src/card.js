@@ -1,9 +1,10 @@
 import {Modal} from "./modal.js";
-
+import "./card.css"
 
 export class Card{
     makeProjectCard (project){
         let card = document.createElement("div");
+        card.classList.add("card");
 
         let header = document.createElement("h3");
 

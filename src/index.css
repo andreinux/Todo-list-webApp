@@ -1,0 +1,24 @@
+h1{
+    color: blue;
+}
+
+#sidebar{
+    border: 1px solid black;
+    grid-area: 2/1/4/2;
+    height: 80vh;
+}
+
+#header {
+    grid-area: 1/1/2/3;
+    border: 1px solid black;
+}
+
+#projects-container{
+    height: 80vh;
+}
+
+body {
+    display: grid;
+    grid-template: 100px auto / 1fr 2fr;
+}
+

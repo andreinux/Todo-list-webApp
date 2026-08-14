@@ -43,3 +43,14 @@
         projectsContainer.append(projectCard);
         }
     }
+
+    export function renderProjectBtns (allProjects){
+        for(const project of allProjects){
+            let projectBtn = document.createElement("button");
+            projectBtn.classList.add("projectBtn");
+            projectBtn.textContent = project.projectName;
+
+            const sidebar = document.querySelector("#sidebar");
+            sidebar.append(projectBtn);
+        }
+    }

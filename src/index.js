@@ -2,7 +2,7 @@ import "./index.css";
 import { NewProject } from "./toDo.js";
 import { Card } from "./card.js";
 import {loadProjects, saveToStorage} from "./storage.js";
-import {renderTasks, renderProjects} from "./ui.js"
+import {renderTasks, renderProjects, renderProjectBtns} from "./ui.js"
 
 let allProjects = loadProjects();
 renderProjects(allProjects);
@@ -30,6 +30,9 @@ projectForm.addEventListener("submit", (e) => {
   projectsContainer.append(projectCard);
 
   projectForm.reset();
+
+  //
+  renderProjectBtns(allProjects);
 });
 
 const viewProjects = document.querySelector("#viewProjects");
