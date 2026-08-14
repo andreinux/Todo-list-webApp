@@ -3,9 +3,7 @@ import { NewProject } from "./toDo.js";
 import { Card } from "./card.js";
 import {loadProjects, saveToStorage} from "./storage.js";
 import {renderTasks, renderProjects, renderProjectBtns} from "./ui.js"
-
-let allProjects = loadProjects();
-
+import {allProjects} from "./state.js";
 
 function addProject(project) {
   

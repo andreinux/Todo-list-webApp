@@ -1,7 +1,8 @@
 
 import {NewToDo} from "./toDo.js";
 import {renderTasks} from "./ui.js";
-
+import {saveToStorage} from "./storage.js";
+import { allProjects } from "./state.js";
 
 export class Modal {
   createToDoModal(project, tasksContainer) {
@@ -53,7 +54,7 @@ export class Modal {
             
             console.log(project);
        
-   
+          saveToStorage(allProjects);
     })
 
     form.append(
