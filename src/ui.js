@@ -1,6 +1,8 @@
     import "./ui.css";
     import {TaskManager} from "./taskManager.js";
     import {Card} from "./card.js";
+    import {saveToStorage} from "./storage.js";
+    import {allProjects} from "./state.js";
     const taskManager = new TaskManager();
     
     
@@ -25,6 +27,7 @@
              finishBtn.addEventListener("click", ()=> { 
                 
                 taskManager.deleteTask(project, task);
+                 saveToStorage(allProjects);
                 renderTasks(project, container);
              })
              
@@ -54,7 +57,6 @@
             projectBtnContainer.append(projectBtn);
 
             projectBtn.addEventListener("click", ()=> {
-                    
                 loadProject(project);   
             })
         }
@@ -62,9 +64,19 @@
     
     
     function loadProject(project) {
-              const card = new Card();
-               const projectCard = card.makeProjectCard(project);
-           const projectsContainer = document.querySelector("#projects-container");
-            projectsContainer.innerHTML = "";
+    const card = new Card();
+
+    const projectCard = card.makeProjectCard(project);
+
+    const projectsContainer =
+        document.querySelector("#projects-container");
+
+    projectsContainer.innerHTML = "";
+
     projectsContainer.append(projectCard);
+
+    const tasksContainer =
+        projectCard.querySelector(".tasks-container");
+
+    renderTasks(project, tasksContainer);
 }
