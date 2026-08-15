@@ -21,7 +21,7 @@
              description.textContent = `Description: ${task.description}`;
 
              const deadline = document.createElement("p");
-             deadline.textContent = task.date;
+             deadline.textContent = `Deadline: ${task.date}`;
 
              const priority = document.createElement("p");
              priority.textContent = `Priority Level: ${task.priority}`;

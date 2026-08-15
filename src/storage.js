@@ -25,7 +25,7 @@ export function loadProjects() {
                 const todo = new NewToDo(
                     todoData.title,
                     todoData.description,
-                    todoData.dueDate,
+                    todoData.date,
                     todoData.priority
                 );
 
