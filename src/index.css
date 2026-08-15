@@ -22,3 +22,8 @@ body {
     grid-template: 100px auto / 1fr 2fr;
 }
 
+#projectBtnContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}

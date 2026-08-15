@@ -1,5 +1,8 @@
 import {Modal} from "./modal.js";
 import "./card.css"
+import {deleteProject} from "./projectArr.js";
+import {allProjects} from "./state.js";
+import {renderProjectBtns} from "./ui.js";
 
 export class Card{
     makeProjectCard (project){
@@ -14,7 +17,7 @@ export class Card{
         let tasksContainer = document.createElement("div");
         tasksContainer.classList.add("tasks-container");
     card.append(tasksContainer);
-
+        
 
         let addToDoBtn = document.createElement("button");
 
@@ -29,7 +32,22 @@ export class Card{
            const toDoModal = modal.createToDoModal(project,tasksContainer);
            document.body.append(toDoModal.dialog);
            toDoModal.dialog.showModal();
+
+
+
         })
+
+        
+
+           let deleteProjectBtn = document.createElement("button");
+           deleteProjectBtn.textContent = "Delete Project";
+           deleteProjectBtn.style.backgroundColor = "red";
+           card.append(deleteProjectBtn);
+
+           deleteProjectBtn.addEventListener("click" , ()=> {
+                deleteProject(project);
+                renderProjectBtns(allProjects);
+           })
         return card
     }
 }

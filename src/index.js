@@ -4,15 +4,11 @@ import { Card } from "./card.js";
 import {loadProjects, saveToStorage} from "./storage.js";
 import {renderTasks, renderProjects, renderProjectBtns} from "./ui.js"
 import {allProjects} from "./state.js";
+import {addProject} from "./projectArr.js";
 
 
 renderProjectBtns(allProjects);
 
-function addProject(project) {
-  
-  allProjects.push(project);
-  saveToStorage(allProjects);
-}
 
 const projectForm = document.querySelector("#projectForm");
 const projectInput = document.querySelector("#projectInput");
