@@ -1,3 +1,108 @@
-.card{
-    border: 1px solid green;
+.card {
+    background: #FFFDF5;
+    border: 1px solid #D0CFB7;
+    border-radius: 12px;
+
+    padding: 18px;
+
+    color: #403D32;
+
+    box-shadow: 0 5px 14px rgba(75, 70, 45, 0.12);
+
+    font-family: "Poppins", sans-serif;
+    height: 89vh;
+}
+
+/* Project header */
+.card > div:first-of-type {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+
+    border-bottom: 2px solid #DEDEA7;
+}
+
+.card h3 {
+    margin: 0;
+
+    flex: 1;
+
+    color: #3D536B;
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+/* Buttons */
+.card button {
+    border: none;
+    border-radius: 7px;
+
+    padding: 8px 13px;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease,
+        background 0.2s ease;
+}
+
+/* Add Task */
+.card .addToDoBtn {
+    background: linear-gradient(
+        135deg,
+        #6B705C,
+        #A5A58D
+    ) !important;
+
+    color: #FFFDF5;
+}
+
+.card .addToDoBtn:hover {
+    background: linear-gradient(
+        135deg,
+        #5A604D,
+        #929477
+    ) !important;
+
+    transform: translateY(-1px);
+
+    box-shadow: 0 4px 8px rgba(75, 70, 45, 0.18);
+}
+
+/* Delete Project */
+.card button:last-child {
+    background: linear-gradient(
+        135deg,
+        #9B625B,
+        #B9786F
+    ) !important;
+
+    color: #FFFDF5;
+}
+
+.card button:last-child:hover {
+    background: linear-gradient(
+        135deg,
+        #87534D,
+        #A76860
+    ) !important;
+
+    transform: translateY(-1px);
+
+    box-shadow: 0 4px 8px rgba(110, 60, 55, 0.18);
+}
+
+/* Task area */
+.tasks-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }

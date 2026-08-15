@@ -30,7 +30,6 @@ export class Modal {
 
     const descriptionInput = document.createElement("textarea");
     descriptionInput.id = "todo-description";
-    descriptionInput.required = true;
     
 
     const deadlineLabel = document.createElement("label");

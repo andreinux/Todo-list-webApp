@@ -1,3 +1,93 @@
 .taskItem {
-    border: 1px solid blue;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    padding: 14px 16px;
+
+    background: #F7F5E8;
+    border: 1px solid #D0CFB7;
+    border-left: 5px solid #6B705C;
+    border-radius: 9px;
+
+    color: #403D32;
+
+    font-family: "Poppins", sans-serif;
+
+    box-shadow: 0 2px 6px rgba(75, 70, 45, 0.08);
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.taskItem:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(75, 70, 45, 0.12);
+}
+
+/* Task title */
+.taskItem h4 {
+    margin: 0;
+
+    min-width: 150px;
+
+    color: #3D536B;
+
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+/* Task information */
+.taskItem p {
+    margin: 0;
+
+    color: #6B6A5D;
+
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+/* Finish button */
+.taskItem button {
+    margin-left: auto;
+
+    border: none;
+    border-radius: 7px;
+
+    padding: 8px 13px;
+
+    background: linear-gradient(
+        135deg,
+        #6B705C,
+        #A5A58D
+    ) !important;
+
+    color: #FFFDF5 !important;
+
+    font-family: "Poppins", sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.taskItem button:hover {
+    background: linear-gradient(
+        135deg,
+        #5A604D,
+        #929477
+    ) !important;
+
+    transform: translateY(-1px);
+
+    box-shadow: 0 3px 7px rgba(75, 70, 45, 0.18);
+}
+
+.taskItem button:active {
+    transform: translateY(0);
 }
