@@ -1,4 +1,4 @@
-
+import "./modal.css";
 import {NewToDo} from "./toDo.js";
 import {renderTasks} from "./ui.js";
 import {saveToStorage} from "./storage.js";
