@@ -13,9 +13,11 @@ export class NewProject{
 }
 
 export class NewToDo{
-    constructor(title, description){
+    constructor(title, description, date, priority){
         this.title = title;
         this.description =description;  
+        this.date = date;
+        this.priority =priority;
     }
 }
 

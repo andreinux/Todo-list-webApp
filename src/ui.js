@@ -18,8 +18,13 @@
              title.textContent = task.title;
 
              const description = document.createElement("p");
-             description.textContent = task.description;
+             description.textContent = `Description: ${task.description}`;
 
+             const deadline = document.createElement("p");
+             deadline.textContent = task.date;
+
+             const priority = document.createElement("p");
+             priority.textContent = `Priority Level: ${task.priority}`;
              const finishBtn = document.createElement("button");
              finishBtn.style.color="red";
              finishBtn.textContent = "Finished";
@@ -32,7 +37,7 @@
              })
              
 
-    taskItem.append(title, description,finishBtn);
+    taskItem.append(title, description,deadline, priority, finishBtn);
     container.append(taskItem);
         }
     }

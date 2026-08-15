@@ -9,14 +9,15 @@ export class Card{
         let card = document.createElement("div");
         card.classList.add("card");
 
-        let header = document.createElement("h3");
+        let name = document.createElement("h3");
 
-        header.textContent = project.projectName;
-        card.append(header);
+        name.textContent = project.projectName;
+        let header = document.createElement("div");
+       
 
         let tasksContainer = document.createElement("div");
         tasksContainer.classList.add("tasks-container");
-    card.append(tasksContainer);
+   
         
 
         let addToDoBtn = document.createElement("button");
@@ -48,6 +49,13 @@ export class Card{
                 deleteProject(project);
                 renderProjectBtns(allProjects);
            })
+
+
+            header.append(name,addToDoBtn, deleteProjectBtn);
+        card.append(header);
+         card.append(tasksContainer);
+
+         
         return card
     }
 }
