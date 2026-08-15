@@ -18,10 +18,10 @@
              title.textContent = task.title;
 
              const description = document.createElement("p");
-             description.textContent = `Description: ${task.description}`;
+           
 
              const deadline = document.createElement("p");
-             deadline.textContent = `Deadline: ${task.date}`;
+        
 
              const priority = document.createElement("p");
              priority.textContent = `Priority Level: ${task.priority}`;
@@ -36,8 +36,28 @@
                 renderTasks(project, container);
              })
              
+//---------------------------
+    taskItem.append(title);
+     description.textContent = task.description
+    ? `Description: ${task.description}`
+    : "";
 
-    taskItem.append(title, description,deadline, priority, finishBtn);
+deadline.textContent = task.date
+    ? `Deadline: ${task.date}`
+    : "";
+
+priority.textContent = task.priority
+    ? `Priority Level: ${task.priority}`
+    : "";
+
+taskItem.append(
+    title,
+    description,
+    deadline,
+    priority,
+    finishBtn
+);
+//-----------------------
     container.append(taskItem);
         }
     }
