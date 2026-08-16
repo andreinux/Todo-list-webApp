@@ -13,6 +13,8 @@ renderProjectBtns(allProjects);
 const projectForm = document.querySelector("#projectForm");
 const projectInput = document.querySelector("#projectInput");
 const projectsContainer = document.querySelector("#projects-container");
+const sidebarTitle = document.querySelector("#sidebar-title");
+
 
 projectForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -25,5 +27,12 @@ projectForm.addEventListener("submit", (e) => {
   //
   projectBtnContainer.innerHTML="";
   renderProjectBtns(allProjects);
+
+  sidebarTitle.textContent = "My Projects";
   
 });
+
+
+if (allProjects.length === 0){
+    sidebarTitle.textContent = "No Projects Added"; 
+}
