@@ -3,6 +3,7 @@ import {NewToDo} from "./toDo.js";
 import {renderTasks} from "./ui.js";
 import {saveToStorage} from "./storage.js";
 import { allProjects } from "./state.js";
+import {renderEditModal} from "./edit.js";
 
 export class Modal {
   createToDoModal(project, tasksContainer) {
@@ -153,8 +154,25 @@ footer.append(cancelBtn, submitBtn);
       deadlineInput,
     };
   }
+
+
+
+
+
+
+
+
+
+
+
 //view task modal
-  renderDetailsModal(task) {
+  renderDetailsModal(task, project, tasksContainer) {
+    console.log("DETAIL MODAL task:", task);
+    console.log("DETAIL MODAL project:", project);
+    console.log("DETAIL MODAL tasksContainer:", tasksContainer);
+
+    // rest...
+
     const dialog = document.createElement("dialog");
     dialog.classList.add("task-details-modal");
 
@@ -183,6 +201,13 @@ footer.append(cancelBtn, submitBtn);
     const editBtn = document.createElement("button");
     editBtn.textContent = "Edit Task";
     editBtn.classList.add("editBtn");
+
+    editBtn.addEventListener("click", ()=> {
+
+dialog.close();
+dialog.remove();
+      renderEditModal(task, project, tasksContainer);
+    })
 
     const modalFooter = document.createElement("div");
     modalFooter.classList.add("modalFooter");
