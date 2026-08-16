@@ -18,8 +18,7 @@
             const title = document.createElement("h4");
              title.textContent = task.title;
 
-             const description = document.createElement("p");
-           
+            
 
              const deadline = document.createElement("p");
         
@@ -49,13 +48,11 @@
              
 //---------------------------
     taskItem.append(title);
-     description.textContent = task.description
-    ? `Description: ${task.description}`
-    : "";
+    
 
 deadline.textContent = task.date
     ? `Deadline: ${task.date}`
-    : "";
+    : "No Deadine Set";
 
 priority.textContent = task.priority
     ? `Priority Level: ${task.priority}`
@@ -63,7 +60,6 @@ priority.textContent = task.priority
 
 taskItem.append(
     title,
-    description,
     deadline,
     priority,
     viewTaskBtn,
