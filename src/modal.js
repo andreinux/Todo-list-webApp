@@ -153,7 +153,7 @@ footer.append(cancelBtn, submitBtn);
       deadlineInput,
     };
   }
-
+//view task modal
   renderDetailsModal(task) {
     const dialog = document.createElement("dialog");
     dialog.classList.add("task-details-modal");
@@ -180,6 +180,14 @@ footer.append(cancelBtn, submitBtn);
     closeBtn.type = "button";
     closeBtn.textContent = "Close";
 
+    const editBtn = document.createElement("button");
+    editBtn.textContent = "Edit Task";
+    editBtn.classList.add("editBtn");
+
+    const modalFooter = document.createElement("div");
+    modalFooter.classList.add("modalFooter");
+    modalFooter.append(editBtn, closeBtn)
+
     closeBtn.addEventListener("click", () => {
         dialog.close();
         dialog.remove();
@@ -190,7 +198,7 @@ footer.append(cancelBtn, submitBtn);
         description,
         deadline,
         priority,
-        closeBtn
+        modalFooter,
     );
 
     document.body.append(dialog);
