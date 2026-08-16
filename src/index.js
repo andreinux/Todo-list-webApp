@@ -27,9 +27,3 @@ projectForm.addEventListener("submit", (e) => {
   renderProjectBtns(allProjects);
   
 });
-
-const viewProjects = document.querySelector("#viewProjects");
-
-viewProjects.addEventListener("click", () => {
-  console.log(allProjects);
-});

@@ -21,7 +21,14 @@
             
 
              const deadline = document.createElement("p");
-        
+          if (task.priority = "Low"){
+            taskItem.style.borderColor = "#6B8E23";
+          }else if (task.priority = "Medium"){
+            taskItem.style.borderColor="#D4A017";
+          }else if (taskItem.priority = "High"){
+            taskItem.style.borderColor = "#C65D57";
+          }
+
 
              const priority = document.createElement("p");
              priority.textContent = `Priority Level: ${task.priority}`;
@@ -35,7 +42,7 @@
 
              viewTaskBtn.addEventListener("click", ()=> {
                 const modal = new Modal;
-                modal.renderDetailsModal(task);
+                modal.renderDetailsModal(task, project, container);
              })
 
 
@@ -91,6 +98,7 @@ taskItem.append(
 
             projectBtn.addEventListener("click", ()=> {
                 loadProject(project);   
+                
             })
         }
     }

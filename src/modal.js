@@ -95,13 +95,16 @@ footer.append(cancelBtn, submitBtn);
   form.addEventListener("submit", (event) => {
     event.preventDefault();
 
+
     const selectedPriority = form.querySelector(
         'input[name="priority"]:checked'
     );
 
+
     const priority = selectedPriority
         ? selectedPriority.value
         : null;
+
 
     const task = new NewToDo(
         titleInput.value,
@@ -110,9 +113,14 @@ footer.append(cancelBtn, submitBtn);
         priority
     );
 
+    
+
     project.addToDo(task);
 
+   
+
     renderTasks(project, tasksContainer);
+
     saveToStorage(allProjects);
 
     dialog.close();
@@ -167,11 +175,6 @@ footer.append(cancelBtn, submitBtn);
 
 //view task modal
   renderDetailsModal(task, project, tasksContainer) {
-    console.log("DETAIL MODAL task:", task);
-    console.log("DETAIL MODAL project:", project);
-    console.log("DETAIL MODAL tasksContainer:", tasksContainer);
-
-    // rest...
 
     const dialog = document.createElement("dialog");
     dialog.classList.add("task-details-modal");
