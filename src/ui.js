@@ -1,4 +1,5 @@
     import "./ui.css";
+    import {Modal} from "./modal.js";
     import {TaskManager} from "./taskManager.js";
     import {Card} from "./card.js";
     import {saveToStorage} from "./storage.js";
@@ -32,6 +33,11 @@
              const viewTaskBtn = document.createElement("button");
              viewTaskBtn.textContent = "View Full Details";
              viewTaskBtn.classList.add("viewTaskBtn");
+
+             viewTaskBtn.addEventListener("click", ()=> {
+                const modal = new Modal;
+                modal.renderDetailsModal(task);
+             })
 
 
              finishBtn.addEventListener("click", ()=> { 

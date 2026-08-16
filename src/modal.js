@@ -153,4 +153,47 @@ footer.append(cancelBtn, submitBtn);
       deadlineInput,
     };
   }
+
+  renderDetailsModal(task) {
+    const dialog = document.createElement("dialog");
+    dialog.classList.add("task-details-modal");
+
+    const title = document.createElement("h2");
+    title.textContent = task.title;
+
+    const description = document.createElement("p");
+    description.textContent = task.description
+        ? `Description: ${task.description}`
+        : "No description provided.";
+
+    const deadline = document.createElement("p");
+    deadline.textContent = task.date
+        ? `Deadline: ${task.date}`
+        : "No deadline set.";
+
+    const priority = document.createElement("p");
+    priority.textContent = task.priority
+        ? `Priority: ${task.priority}`
+        : "No priority set.";
+
+    const closeBtn = document.createElement("button");
+    closeBtn.type = "button";
+    closeBtn.textContent = "Close";
+
+    closeBtn.addEventListener("click", () => {
+        dialog.close();
+        dialog.remove();
+    });
+
+    dialog.append(
+        title,
+        description,
+        deadline,
+        priority,
+        closeBtn
+    );
+
+    document.body.append(dialog);
+    dialog.showModal();
+}
 }
