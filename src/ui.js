@@ -29,6 +29,11 @@
              finishBtn.style.color="red";
              finishBtn.textContent = "Finished";
 
+             const viewTaskBtn = document.createElement("button");
+             viewTaskBtn.textContent = "View Full Details";
+             viewTaskBtn.classList.add("viewTaskBtn");
+
+
              finishBtn.addEventListener("click", ()=> { 
                 
                 taskManager.deleteTask(project, task);
@@ -55,6 +60,7 @@ taskItem.append(
     description,
     deadline,
     priority,
+    viewTaskBtn,
     finishBtn
 );
 //-----------------------
